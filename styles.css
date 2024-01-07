@@ -1,3 +1,47 @@
 body {
+    background-color: #333333;
+    color: #eef4ed;
+    font-family: "Open Sans", sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+#mybutton {
+    border-radius: 5px;
+}
+
+header {
     background-color: black;
+    padding: 10px;
+}
+
+section {
+    background-color: darkgreen;
+    color: black;
+    margin: 20px; 
+    display: flex;
+    flex-direction: row ;
+}
+
+div {
+    background-color: aqua;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+footer {
+    background-color: black;
+}
+
+#navbar {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+}
+
+#navbar li {
+    margin: 10px;
 }
