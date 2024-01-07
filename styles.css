@@ -12,7 +12,7 @@ body {
 
 header {
     background-color: black;
-    padding: 10px;
+    padding: 0px;
 }
 
 section {
@@ -37,11 +37,18 @@ footer {
 
 #navbar {
     margin: 0px;
-    padding: 0px;
+    padding-left: 10px;
     list-style-type: none;
     display: flex;
 }
 
 #navbar li {
     margin: 10px;
+}
+
+h1 {
+    background-color: black;
+    margin: 0px;
+    padding: 20px;
+    padding-bottom: 40px;
 }
