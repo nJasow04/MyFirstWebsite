@@ -1,9 +1,46 @@
+:root {
+    --bg-color: rgb(20,20,20);
+    --project-color: rgb(23,23,23);
+    --purple: rgb(123, 31, 162);
+    --violet: rgb(103, 58, 183);
+    --pink: rgb(244, 143, 177);
+    --g1: rgb()
+}
+
 body {
-    background-color: #333333;
+    background-color: var(--bg-color);
     color: #eef4ed;
     font-family: "Open Sans", sans-serif;
     padding: 0px;
     margin: 0px;
+    cursor: none;
+}
+
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+}
+
+.cursor-dot, .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid hsla(0, 0%, 100%, 0.5);
+}
+
+p {
+    padding-left: 20px;
 }
 
 #mybutton {
@@ -11,19 +48,19 @@ body {
 }
 
 header {
-    background-color: black;
+    /* background-color: black; */
     padding: 0px;
 }
 
-section {
+.tutorial {
     background-color: darkgreen;
     color: black;
     margin: 20px; 
     display: flex;
-    flex-direction: row ;
+    /* flex-direction: row; */
 }
 
-div {
+section.tutorial div {
     background-color: aqua;
     display: inline-block;
     width: 100px;
@@ -32,7 +69,7 @@ div {
 }
 
 footer {
-    background-color: black;
+    /* background-color: black; */
 }
 
 #navbar {
@@ -46,9 +83,164 @@ footer {
     margin: 10px;
 }
 
+a {
+    color: #9b7ede;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #067ded;
+    text-decoration: none;
+}
+
+
 h1 {
-    background-color: black;
+    /* background-color: black; */
     margin: 0px;
     padding: 20px;
     padding-bottom: 40px;
+}
+
+/* Portfolio */
+
+#project-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#projects{
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 20px);
+    max-width: 1230px;
+    gap: 8px;
+}
+
+.project {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    height: 260px;
+    width: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.project:hover::before{
+    opacity: 1;
+}
+
+#projects:hover > .project > .project-border {
+    opacity: 1;
+}
+
+.project::before {
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    content: "";
+    position: absolute;
+    top: 0%;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+.project > .project-content {
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    background-color: var(--project-color);
+    border-radius: inherit;
+    margin: 1px;
+    z-index: 2;
+    position: relative;
+}
+
+.project > .project-border {
+    background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.6),
+        transparent 40%
+    );
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    content: "";
+    position: absolute;
+    top: 0%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+/* Magic Effect */
+
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: -200% center;
+    }
+}
+
+h1 > .magic {
+    background: linear-gradient(
+        to right,
+        var(--purple),
+        var(--violet),
+        var(--pink),
+        var(--purple)
+    );
+    white-space: nowrap;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: background-pan 3s linear infinite;
+    background-size: 200%;
+}
+
+/* Resume */
+
+.resume-content {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card::before {
+    background: linear-gradient(
+        130deg,
+        transparent 0% 33%,
+        var(--g1) 66%,
+        var(--g2) 83.5%,
+        var(--g3) 100%,
+    );
+    background-size: 300% 300%;
+    background-position: 0% 0%;
+
+    content: "";
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.card {
+    border: 0.5vmin solid var(--purple);
+    width: 26vmin;
+    cursor: pointer;
+    position: relative;
+    aspect-ratio: 1 / 1.6;
+    background-color: black;
 }
