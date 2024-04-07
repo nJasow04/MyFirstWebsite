@@ -4,13 +4,25 @@
     --purple: rgb(123, 31, 162);
     --violet: rgb(103, 58, 183);
     --pink: rgb(244, 143, 177);
-    --g1: rgb()
+    --g1: rgb(123, 31, 162);
+    --g2: rgb(103, 58, 183);
+    --g3: rgb(244, 143, 177);
+    --dark: rgb(20, 20, 20);
+    --yellow: rgb(253, 216, 53);
+    --blue: rgb(98, 0, 234);
+    
+    --c1: rgb(3, 7, 18);
+    --c2: rgb(137, 187, 254);
+    
+    --left-color: var(--c1);
+    --right-color: var(--c2);
 }
 
 body {
     background-color: var(--bg-color);
     color: #eef4ed;
     font-family: "Open Sans", sans-serif;
+    font-size: ;
     padding: 0px;
     margin: 0px;
     cursor: none;
@@ -30,7 +42,6 @@ body {
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
-
 }
 
 .cursor-outline {
@@ -46,6 +57,61 @@ p {
 #mybutton {
     border-radius: 5px;
 }
+
+/* Header */
+.side-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+.side {
+    display: grid;
+    overflow: hidden;
+    place-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .side .title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 7vw;
+    font-weight: 800;
+    margin: 0px 10vw;
+    width: 80vw;
+  }
+  
+  .side .fancy {
+    font-family: "Permanent Marker", cursive;
+    font-size: 1.8em;
+    line-height: 0.6em;
+  }
+  
+  #left-side {
+    background-color: var(--left-color);
+    width: 60%;
+    z-index: 2;
+  }
+  
+  #left-side .title {  
+    color: white;  
+  }
+  
+  #left-side .fancy {
+    color: var(--right-color);
+  }
+  
+  #right-side {
+    background-color: var(--right-color);
+  }
+  
+  #right-side .title {
+    color: var(--dark);
+  }
+  
+  #right-side .fancy {
+    color: white;
+  }
 
 header {
     /* background-color: black; */
@@ -217,6 +283,16 @@ h1 > .magic {
     align-items: center;
 }
 
+
+.card {
+    border: 0.5vmin solid var(--purple);
+    width: 26vmin;
+    cursor: pointer;
+    position: relative;
+    aspect-ratio: 1 / 1.6;
+    background-color: black;
+}
+
 .card::before {
     background: linear-gradient(
         130deg,
@@ -233,14 +309,12 @@ h1 > .magic {
     left: 0px;
     position: absolute;
     top: 0px;
+    transition: background-position 350ms ease;
     width: 100%;
+    z-index: 1;
 }
 
-.card {
-    border: 0.5vmin solid var(--purple);
-    width: 26vmin;
-    cursor: pointer;
-    position: relative;
-    aspect-ratio: 1 / 1.6;
-    background-color: black;
+.card:hover:before {
+    background-position: 100% 100%;
+    transform: scale(1.08, 1.03);
 }
