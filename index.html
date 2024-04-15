@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="Styles/styles.css" />
+    <script src="https://kit.fontawesome.com/f516cb5f7b.js" crossorigin="anonymous"></script>
     <title>Jason Wan</title>
+    <link href="Media/smile.png" rel="icon" />
+    <link rel="stylesheet" href="Styles/portfolio.css" />
 </head>
 <body>
     <div class="cursor-dot" data-cursor-dot></div>
@@ -28,57 +31,282 @@
     </div>
       
 <!-- Navigation Bar -->
-    <section id="target-section" class="navbar-container">
+    <section id ="target-section" class="navbar-container">
         <div id="menu">
             <div id="menu-items">
             <!-- I made these divs instead of links so you can click on mobile to view the effect -->
                 <div class="menu-item"><a href="index.html#target-section">HOME</a></div>
-                <div class="menu-item"><a href="Pages/portfolio.html">PROJECTS</a></div>
+                <div class="menu-item"><a href="Pages/portfolio.html">PORTFOLIO</a></div>
                 <div class="menu-item"><a href="Pages/chatwithme.html">CHAT WITH ME</a></div>
-                <div class="menu-item"><a href="Pages/contact.html">CONTACTS</a></div>
+                <div class="menu-item"><a href="Pages/contact.html">CONTACT</a></div>
             </div>
             <div id="menu-background-pattern"></div>
             <div id="menu-background-image"></div>
         </div>
     </section>
 
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2 id="about-title">About</h2>
+          </div>
 
-  <!-- Content -->
-  <div class="content-container">
-      <div id="left">
-          <p class="intro"><a id="Jason" class="hoverable">Jason Wan</a> is a student attending <a class="hoverable" id="ucla">UCLA</a>. He is currently a part-time student researcher at <a href="http://vision.ucla.edu/" target="_blank" class="hoverable" id="vision-labs">UCLA Vision Labs</a>, Reading <a class="hoverable" id="book">War and Peace</a>, and probably taking pictures of his <a class="hoverable" id="joke">big muscles</a>.</p>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <ul class="projindex" class="content-ul">
-              <a class="hoverable list" id="lacf" href="lacf.html">Resume</a><br><br>
-              <a class="hoverable list" id="io" href="googleio.html">Google I/O Countdown</a><br><br>
-              <a class="hoverable list" id="pixelillo" >Google Pixel Illustrations</a><br><br>
-          </ul>
-          
-          <ul class="projcategory" class="content-ul">
-              <a class="list right lacfcategory">PDF file</a><br><br>
-              <a class="list right iocategory">Interaction design</a><br><br>
-              <a class="list right pixelillocategory">Illustration system</a><br><br>
-          </ul>
-      </div>
-      
-      <div id="line"></div>
-      
-      <div id="right">
-          <p class="menulinx"><a href="https://github.com/nJasow04" target="_blank" class="hoverable">Github</a><br><br><a class="hoverable" href="https://www.youtube.com/@njasow5234/videos" target="_blank">YouTube</a></p>
-          
-          <!-- <div class="frame">
-              <img src="img/la1.JPG" id="la1" class="laimg imgpos" alt="palm trees">
-              <img src="img/logo.png" id="instrumentlogo" class="center imgpos" alt="instrument logo">
+          <div class="about-columns">
+            <div class="about-column">
+              <img src="Media/mypicture.jpg" id="about-face" alt="" />
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content">
+              <h3>Aspiring Software Engineer</h3>
+              <!--
+              <p class="fst-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              -->
+              <div class="about-columns">
+                <div class="about-column">
+                  <ul>
+                    <li>
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <strong>Phone:</strong> <span>+1 (424) 535-9757</span>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <strong>City:</strong> <span>Los Angeles, CA, USA</span>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <strong>Pursuing:</strong> <span>B.S. Computer Science @ UCLA Samueli</span>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <strong>Freelance:</strong> <span>Available</span>
+                    </li>
+                    
+                  </ul>
+                </div>
+                <div class="about-column">
+                  <ul>
+                    <li>
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <strong>Email:</strong>
+                      <a href="mailto:jason.wan@ucla.edu">jason.wan@ucla.edu</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="elon-quote">
+              <em>Try to be useful, do things that are useful to your fellow human beings, to the world…Are you contributing more than you consume? Try to have a positive net contribution to society</em>
+          </div>
+        </div>
+      </section>
+      <!-- End About Section -->
 
-          </div> -->
-      </div>
-  </div>
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Resume</h2>
+            <a
+              href="Jason_Wan_Resume.pdf" target="_blank"
+              ><i class="fa-solid fa-link"></i> My Resume
+            </a>
+          </div>
 
-    <script src="app.js"></script>
+          <div class="resume-columns">
+            <div class="resume-column">
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item">
+                <h4>UCLA</h4>
+                <h5>2022 - 2026</h5>
+                <p><em>Los Angeles, CA</em></p>
+                <p>B.S. Computer Science</p>
+                <p>Cumulative 3.7 GPA</p>
+                <b></b>
+                <p>Software Construction, Computer Architecture, Programming Languages, Algorithms & Complexity, Data Structures & Algorithms, Discrete Mathematics, Statistics and Probability, Linear Algebra, Theory of Computing</p>
+              </div>
+              <div class="resume-item">
+                <h4>St Theresa of Lisieux Catholic High School</h4>
+                <h5>2018 - 2022</h5>
+                <p><em>Richmondhill, ON, CA</em></p>
+                <p>Class of '22 - 98% Grade Average (4.0 Equivalent)</p>
+                <p>
+                  <a
+                      href="highschool/APScoreReport.pdf" target="_blank"
+                      ><i class="fa-solid fa-link"></i><u>AP</u>
+                  </a>
+                  <a
+                      href="highschool/SATreport.pdf" target="_blank"
+                      ><i class="fa-solid fa-link"></i><u>SAT</u>
+                  </a>
+                  <a
+                      href="highschool/SATMath2Report.pdf" target="_blank"
+                      ><i class="fa-solid fa-link"></i><u>SAT Math II</u>
+                  </a>
+                </p>
+                <p>
+                  St Theresa AP Program 
+                  <br> <br>
+                  Relevant Coursework: AP Calculus BC (AB Subcredit), AP Physics 1/2/C Mech/C EM, AP Computer Science A, AP Chemistry, AP Statistics
+                </p>
+              </div>
+              <h3 class="resume-title">Honors and Awards</h3>
+              <div class="resume-item">
+                <h4>2021 Vex World Championships 3rd Place</h4>
+                <h5>APRIL 2021</h5>
+                <p>
+                  Largest High School robotics competition in North America
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>2021 Avagadro Exam: Outstanding Acheivement</h4>
+                <h5>June 2021</h5>
+                <p>Placed 13th in the nation</p>
+              </div>
+              <div class="resume-item">
+                <h4>U15 Men's Foil National Champion</h4>
+                <h5>JANUARY 2019</h5>
+                <p><em>British Columbia, Canada</em></p>
+              </div>
+              <div class="resume-item">
+                <h4>AMC 12 Honor Roll &amp; 1x AIME qualification</h4>
+                <h5>MARCH 2021</h5>
+                <p><em>Richmondhill, ON, CA</em></p>
+                <p>American Mathematics Competitions - AMC 12 contest score 104, AIME contest score 6, Honor Roll, qualification for American Invitational Mathematics Examination (AIME).</p>
+              </div>
+              <div class="resume-item">
+                <h4>Honor Roll</h4>
+                <h5>2019 - 2022</h5>
+                <p><em>Richmondhill, ON</em></p>
+                <p>St. Theresa of Lisieux Award for Academic Excellence</p>
+              </div>
+              <div class="resume-item">
+                <h4>Math Award</h4>
+                <h5>Jan 2020</h5>
+                <p><em>Richmondhill, ON</em></p>
+                <p>Having the highest grade average in Gr 10 Principles of Mathematics.</p>
+              </div>
+              <div class="resume-item">
+                <h4>AP Scholar with Distinction</h4>
+                <h5>2021</h5>
+                <p><em>Richmondhill, ON</em></p>
+                <p>Awarded AP Scholar with Distinction in 2021 years of AP testing, average score of at least 3.5 on all AP Exams taken and scores of 3 or higher on five or more of these exams.</p>
+              </div>
+            </div>
+
+            <div class="resume-column">
+              <h3 class="resume-title">Experience</h3>
+              <div class="resume-item">
+                <h4>UCLA Vision Labs - Student Researcher</h4>
+                <h5>October 2022 - PRESENT</h5>
+                <p><em>Los Angeles, CA</em></p>
+                <ul>
+                  <li>
+                    Started off by creating basic digit recognition systems with Convolutional Neural Networks
+                  </li>
+                  <li>
+                    Implemented and tested Meta's SAM and OpenAI's CLIP
+                  </li>
+                  <li>
+                    Designed an automated segmentation model
+                  </li>
+                  <li>
+                    Combined the SAM model with diffusion model for research paper
+                  </li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4>Serval Ventures - Student Intern</h4>
+                <h5>October 2023 - March 2024</h5>
+                <p><em>New York City, NY</em></p>
+                <ul>
+                  <li>
+                    Performed data collection for funding processes like average household income per state etc. via Python webscraping
+                  </li>
+                  <li>
+                    Developed financial models using my researched data to help company founders and Serval Ventures cooperate
+                  </li>
+                  <li>
+                    Presented and worked on initial due diligence, screening company investor slides and other resources, etc.
+                  </li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4>Fencing Coach</h4>
+                <h5>2015 - 2024</h5>
+                <p><em>Markham, ON</em></p>
+                <ul>
+                  <li>
+                    Fencing National Team Member (2015)
+                  </li>
+                  <li>
+                    Coached kids ages 5 - 16 in private and group settings
+                  </li>
+                  <li>
+                    Official Fencing Referee
+                  </li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4>Robotics Team Lead</h4>
+                <h5>SEPTEMBER 2018 - APRIL 2022</h5>
+                <p><em>Richmondhill, ON</em></p>
+                <ul>
+                  <li>
+                    Robotics Team Leader 3/4 years of High School
+                  </li>
+                  <li>
+                    Main engineer (designed, coded, built most of the robots)
+                  </li>
+                  <li>
+                    Lead meetings and managed team expenses
+                  </li>
+                  <li>
+                    Brought our team to the Vex World Championships 3/4 years and placed 3rd in 2021
+                  </li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4>Tim Hortons Clerical Worker</h4>
+                <h5>JULY 2021 - DECEMBER 2021</h5>
+                <p><em>Richmondhill, ON </em></p>
+                <ul>
+                  <li>
+                    Made food and drinks
+                  </li>
+                  <li>
+                    Customer Service
+                  </li>
+                  <li>
+                    Cleaning
+                  </li>
+                </ul>
+              </div>
+              <h3 class="resume-title">Languages</h3>
+              <div class="resume-item">
+                <h4>English (Native)</h4>
+              </div>
+              <div class="resume-item">
+                <h4>Mandarin (Working Proficiency)</h4>
+              </div>
+              <h3 class="resume-title">Citizenship &amp; Visa</h3>
+              <div class="resume-item">
+                <h4>Canada</h4>
+                <h4>F-1 Student</h4>
+              </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Resume Section -->
+
+    
+
+      <!-- End Portfolio Section -->
+    <a href="#target-section" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+    <script src="Scripts/app.js"></script>
+    <script src="Scripts/portfolio.js"></script>
 </body>
 </html>

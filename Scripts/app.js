@@ -322,5 +322,72 @@ Array.from(document.getElementsByClassName("menu-item"))
   
   })()
 
+/**
+   * Back to top button
+   *
+   */
 
+
+let backtotop = document.querySelector('.back-to-top');
+
+if (backtotop) {
+  const toggleBacktotop = () => {
+    if (window.scrollY > 100) {
+      backtotop.classList.add('active');
+    } else {
+      backtotop.classList.remove('active');
+    }
+  };
+
+  const smoothScrollBacktotop = (event) => {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  window.addEventListener('load', toggleBacktotop);
+  window.addEventListener('scroll', toggleBacktotop);
+  backtotop.addEventListener('click', smoothScrollBacktotop);
+}
   
+
+  // Age Updater
+// Set your birth date
+const birthDate = new Date('2004-08-29'); // Replace with your actual birth date
+
+// Function to calculate age based on birth date
+function calculateAge(birthDate) {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  return age;
+}
+
+// Function to update the age on the page
+function updateAge() {
+  const ageElement = document.getElementById('age');
+  const age = calculateAge(birthDate);
+  ageElement.textContent = age;
+}
+
+// Call the updateAge function when the page loads
+window.onload = updateAge;
+
+
+document.getElementById("projects").onmousemove = e => {
+  for(const project of document.getElementsByClassName("project")){
+      // project.onmousemove = e => handleOnMouseMove(e);
+      const rect = project.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+      project.style.setProperty("--mouse-x", `${x}px`);
+      project.style.setProperty("--mouse-y", `${y}px`);
+ }
+}

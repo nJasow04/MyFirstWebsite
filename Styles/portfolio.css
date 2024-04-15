@@ -1,5 +1,89 @@
 /* Portfolio */
 
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 5%;
+
+    background-color: rgb(15,15,15);
+}
+.fancy {
+    font-family: "Permanent Marker", cursive;
+    font-size: 6em;
+    line-height: 0.6em;
+    color: #c9b1ff;
+    margin-right: auto;
+}
+
+.portfolio-title {
+    text-align: center;
+    padding-bottom: 0px;
+}
+
+.portfolio-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: #b084cc;
+  }
+
+.portfolio-title h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.portfolio-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: rgb(155,126,222);
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+
+/* Nav Bar */
+nav > ul {
+    list-style: none;
+    display: flex;
+}
+
+nav > ul > li {
+    padding: 0px 20px;
+    font-weight: 900;
+}
+
+nav > ul > li > a:hover {
+    color: rgba(155,126,222,1);
+}
+
+#contact {
+    margin-left: 10px;
+    padding: 9px 25px;
+    background-color: rgba(155,126,222,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+#contact:hover {
+    background-color: rgba(155, 126, 222, 0.8);
+    color: white;
+}
+
+/* Portfolio */
 #project-wrapper {
     display: flex;
     align-items: center;
@@ -88,7 +172,7 @@
     }
 }
 
-h1 > .magic {
+.magic {
     background: linear-gradient(
         to right,
         var(--purple),
