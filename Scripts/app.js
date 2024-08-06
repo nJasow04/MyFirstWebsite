@@ -1,393 +1,157 @@
-const cursorDot = document.querySelector("[data-cursor-dot]");
-const cursorOutline = document.querySelector("[data-cursor-outline]");
+(function() {
+  "use strict";
 
-window.addEventListener("mousemove", function(e) {
-
-    const posX = e.clientX;
-    const posY = e.clientY;
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // cursorOutline.style.left = `${posX}px`;
-    // cursorOutline.style.top = `${posY}px`;
-
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, {duration: 500, fill: "forwards"});
-
-})
-
-const left = document.getElementById("left-side");
-const container = document.querySelector(".side-container");
-
-const handleMove = e => {
-  left.style.width = `${e.clientX / window.innerWidth * 100}%`;
-}
-
-const handleMouseLeave = () => {
-    document.onmousemove = null;
-    // left.style.width = "50%"; // Reset the width to its original value
+  // Helper functions
+  const select = (el, all = false) => {
+      el = el.trim();
+      return all ? [...document.querySelectorAll(el)] : document.querySelector(el);
   };
 
-const handleMouseEnter = () => {
-    container.onmousemove = e => handleMove(e);
-};
+  const on = (type, el, listener, all = false) => {
+      let selectEl = select(el, all);
+      if (selectEl) {
+          if (all) {
+              selectEl.forEach(e => e.addEventListener(type, listener));
+          } else {
+              selectEl.addEventListener(type, listener);
+          }
+      }
+  };
 
-document.onmousemove = e => handleMove(e);
-document.ontouchmove = e => handleMove(e.touches[0]);
-container.onmouseleave = handleMouseLeave;
-container.onmouseenter = handleMouseEnter;
+  // Cursor effects
+  const cursorDot = select("[data-cursor-dot]");
+  const cursorOutline = select("[data-cursor-outline]");
 
-const menu = document.getElementById("menu");
+  const updateCursor = (e) => {
+      const posX = e.clientX;
+      const posY = e.clientY;
+      cursorDot.style.left = `${posX}px`;
+      cursorDot.style.top = `${posY}px`;
+      cursorOutline.animate({
+          left: `${posX}px`,
+          top: `${posY}px`
+      }, {duration: 500, fill: "forwards"});
+  };
 
-Array.from(document.getElementsByClassName("menu-item"))
-  .forEach((item, index) => {
-    item.onmouseover = () => {
-      menu.dataset.activeIndex = index;
-    }
+  // Side container effect
+  const left = select("#left-side");
+  const container = select(".side-container");
+
+  const handleMove = e => {
+      left.style.width = `${e.clientX / window.innerWidth * 100}%`;
+  };
+
+  const handleMouseLeave = () => {
+      document.onmousemove = null;
+  };
+
+  const handleMouseEnter = () => {
+      container.onmousemove = handleMove;
+  };
+
+  // Menu effects
+  const menu = select("#menu");
+  Array.from(document.getElementsByClassName("menu-item"))
+      .forEach((item, index) => {
+          item.onmouseover = () => {
+              menu.dataset.activeIndex = index;
+          };
+      });
+
+  // Navbar links active state on scroll
+  const navbarlinksActive = () => {
+      let position = window.scrollY + 200;
+      select('#navbar .scrollto', true).forEach(navbarlink => {
+          if (!navbarlink.hash) return;
+          let section = select(navbarlink.hash);
+          if (!section) return;
+          if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+              navbarlink.classList.add('active');
+          } else {
+              navbarlink.classList.remove('active');
+          }
+      });
+  };
+
+  // Smooth scrolling
+  const scrollto = (el) => {
+      let elementPos = select(el).offsetTop;
+      window.scrollTo({
+          top: elementPos,
+          behavior: 'smooth'
+      });
+  };
+
+  // Back to top button
+  const backtotop = select('.back-to-top');
+  const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+          backtotop.classList.add('active');
+      } else {
+          backtotop.classList.remove('active');
+      }
+  };
+
+  // Age calculation
+  const birthDate = new Date('2004-08-29');
+  const calculateAge = (birthDate) => {
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+  };
+
+  const updateAge = () => {
+      const ageElement = select('#age');
+      const age = calculateAge(birthDate);
+      ageElement.textContent = age;
+  };
+
+  // Event listeners
+  window.addEventListener('mousemove', updateCursor);
+  document.onmousemove = handleMove;
+  document.ontouchmove = e => handleMove(e.touches[0]);
+  container.onmouseleave = handleMouseLeave;
+  container.onmouseenter = handleMouseEnter;
+
+  window.addEventListener('scroll', () => {
+      navbarlinksActive();
+      toggleBacktotop();
   });
 
+  window.addEventListener('load', () => {
+      navbarlinksActive();
+      toggleBacktotop();
+      updateAge();
 
-//   window.addEventListener('scroll', function() {
-//     var targetSection = document.getElementById('target-section');
-//     var rect = targetSection.getBoundingClientRect();
-//     var windowHeight = window.innerHeight;
-  
-//     if (rect.bottom < windowHeight * 0.5) {
-//       targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-//     }
-//   });
-
-
-  /**
-   * Hero type effect
-   */
-  (function() {
-    "use strict";
-  
-    /**
-     * Easy selector helper function
-     */
-    const select = (el, all = false) => {
-      el = el.trim()
-      if (all) {
-        return [...document.querySelectorAll(el)]
-      } else {
-        return document.querySelector(el)
-      }
-    }
-  
-    /**
-     * Easy event listener function
-     */
-    const on = (type, el, listener, all = false) => {
-      let selectEl = select(el, all)
-      if (selectEl) {
-        if (all) {
-          selectEl.forEach(e => e.addEventListener(type, listener))
-        } else {
-          selectEl.addEventListener(type, listener)
-        }
-      }
-    }
-  
-    /**
-     * Easy on scroll event listener 
-     */
-    const onscroll = (el, listener) => {
-      el.addEventListener('scroll', listener)
-    }
-  
-    /**
-     * Navbar links active state on scroll
-     */
-    let navbarlinks = select('#navbar .scrollto', true)
-    const navbarlinksActive = () => {
-      let position = window.scrollY + 200
-      navbarlinks.forEach(navbarlink => {
-        if (!navbarlink.hash) return
-        let section = select(navbarlink.hash)
-        if (!section) return
-        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-          navbarlink.classList.add('active')
-        } else {
-          navbarlink.classList.remove('active')
-        }
-      })
-    }
-    window.addEventListener('load', navbarlinksActive)
-    onscroll(document, navbarlinksActive)
-  
-    /**
-     * Scrolls to an element with header offset
-     */
-    const scrollto = (el) => {
-      let elementPos = select(el).offsetTop
-      window.scrollTo({
-        top: elementPos,
-        behavior: 'smooth'
-      })
-    }
-  
-    /**
-     * Back to top button
-     */
-    let backtotop = select('.back-to-top')
-    if (backtotop) {
-      const toggleBacktotop = () => {
-        if (window.scrollY > 100) {
-          backtotop.classList.add('active')
-        } else {
-          backtotop.classList.remove('active')
-        }
-      }
-      window.addEventListener('load', toggleBacktotop)
-      onscroll(document, toggleBacktotop)
-    }
-  
-    /**
-     * Mobile nav toggle
-     */
-    on('click', '.mobile-nav-toggle', function(e) {
-      select('body').classList.toggle('mobile-nav-active')
-      this.classList.toggle('bi-list')
-      this.classList.toggle('bi-x')
-    })
-  
-    /**
-     * Scrool with ofset on links with a class name .scrollto
-     */
-    on('click', '.scrollto', function(e) {
-      if (select(this.hash)) {
-        e.preventDefault()
-  
-        let body = select('body')
-        if (body.classList.contains('mobile-nav-active')) {
-          body.classList.remove('mobile-nav-active')
-          let navbarToggle = select('.mobile-nav-toggle')
-          navbarToggle.classList.toggle('bi-list')
-          navbarToggle.classList.toggle('bi-x')
-        }
-        scrollto(this.hash)
-      }
-    }, true)
-  
-    /**
-     * Scroll with ofset on page load with hash links in the url
-     */
-    window.addEventListener('load', () => {
       if (window.location.hash) {
-        if (select(window.location.hash)) {
-          scrollto(window.location.hash)
-        }
+          if (select(window.location.hash)) {
+              scrollto(window.location.hash);
+          }
       }
-    });
-  
-    /**
-     * Preloader
-     */
-    let preloader = select('#preloader');
-    if (preloader) {
-      window.addEventListener('load', () => {
-        preloader.remove()
-      });
-    }
-  
-    /**
-     * Hero type effect
-     */
-    const typed = select('.typed')
-    if (typed) {
-      let typed_strings = typed.getAttribute('data-typed-items')
-      typed_strings = typed_strings.split(',')
-      new Typed('.typed', {
-        strings: typed_strings,
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 50,
-        backDelay: 2000
-      });
-    }
-  
-    /**
-     * Skills animation
-     */
-    let skilsContent = select('.skills-content');
-    if (skilsContent) {
-      new Waypoint({
-        element: skilsContent,
-        offset: '80%',
-        handler: function(direction) {
-          let progress = select('.progress .progress-bar', true);
-          progress.forEach((el) => {
-            el.style.width = el.getAttribute('aria-valuenow') + '%'
-          });
-        }
-      })
-    }
-  
-    /**
-     * Porfolio isotope and filter
-     */
-    window.addEventListener('load', () => {
-      let portfolioContainer = select('.portfolio-container');
-      if (portfolioContainer) {
-        let portfolioIsotope = new Isotope(portfolioContainer, {
-          itemSelector: '.portfolio-item'
-        });
-  
-        let portfolioFilters = select('#portfolio-flters li', true);
-  
-        on('click', '#portfolio-flters li', function(e) {
+
+      // Add other load event handlers here
+  });
+
+  on('click', '.scrollto', function(e) {
+      if (select(this.hash)) {
           e.preventDefault();
-          portfolioFilters.forEach(function(el) {
-            el.classList.remove('filter-active');
-          });
-          this.classList.add('filter-active');
-  
-          portfolioIsotope.arrange({
-            filter: this.getAttribute('data-filter')
-          });
-          portfolioIsotope.on('arrangeComplete', function() {
-            AOS.refresh()
-          });
-        }, true);
+          scrollto(this.hash);
       }
-  
+  }, true);
+
+  if (backtotop) {
+    backtotop.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetSection = select('#target-section');
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
     });
-  
-    /**
-     * Initiate portfolio lightbox 
-     */
-    const portfolioLightbox = GLightbox({
-      selector: '.portfolio-lightbox'
-    });
-  
-    /**
-     * Initiate portfolio details lightbox 
-     */
-    const portfolioDetailsLightbox = GLightbox({
-      selector: '.portfolio-details-lightbox',
-      width: '90%',
-      height: '90vh'
-    });
-  
-    /**
-     * Portfolio details slider
-     */
-    new Swiper('.portfolio-details-slider', {
-      speed: 400,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      }
-    });
-  
-    /**
-     * Testimonials slider
-     */
-    new Swiper('.testimonials-slider', {
-      speed: 600,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      slidesPerView: 'auto',
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      }
-    });
-  
-    /**
-     * Animation on scroll
-     */
-    window.addEventListener('load', () => {
-      AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-      })
-    });
-  
-  })()
-
-/**
-   * Back to top button
-   *
-   */
-
-
-let backtotop = document.querySelector('.back-to-top');
-
-if (backtotop) {
-  const toggleBacktotop = () => {
-    if (window.scrollY > 100) {
-      backtotop.classList.add('active');
-    } else {
-      backtotop.classList.remove('active');
-    }
-  };
-
-  const smoothScrollBacktotop = (event) => {
-    event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  window.addEventListener('load', toggleBacktotop);
-  window.addEventListener('scroll', toggleBacktotop);
-  backtotop.addEventListener('click', smoothScrollBacktotop);
-}
-  
-
-  // Age Updater
-// Set your birth date
-const birthDate = new Date('2004-08-29'); // Replace with your actual birth date
-
-// Function to calculate age based on birth date
-function calculateAge(birthDate) {
-  const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-
-  return age;
 }
 
-// Function to update the age on the page
-function updateAge() {
-  const ageElement = document.getElementById('age');
-  const age = calculateAge(birthDate);
-  ageElement.textContent = age;
-}
-
-// Call the updateAge function when the page loads
-window.onload = updateAge;
-
-
-document.getElementById("projects").onmousemove = e => {
-  for(const project of document.getElementsByClassName("project")){
-      // project.onmousemove = e => handleOnMouseMove(e);
-      const rect = project.getBoundingClientRect(),
-          x = e.clientX - rect.left,
-          y = e.clientY - rect.top;
-      project.style.setProperty("--mouse-x", `${x}px`);
-      project.style.setProperty("--mouse-y", `${y}px`);
- }
-}
+  // Add other initialization code here (e.g., for typed.js, portfolio, testimonials, etc.)
+})();

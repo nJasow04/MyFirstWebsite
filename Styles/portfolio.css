@@ -1,4 +1,8 @@
 /* Portfolio */
+body {
+    overflow-y: auto;
+}
+
 
 header {
     display: flex;
@@ -63,10 +67,12 @@ nav > ul {
 nav > ul > li {
     padding: 0px 20px;
     font-weight: 900;
+    cursor: none;
 }
 
 nav > ul > li > a:hover {
     color: rgba(155,126,222,1);
+    cursor: none;
 }
 
 #contact {
@@ -75,7 +81,7 @@ nav > ul > li > a:hover {
     background-color: rgba(155,126,222,1);
     border: none;
     border-radius: 50px;
-    cursor: pointer;
+    cursor: none;
     transition: all 0.3s ease 0s;
 }
 #contact:hover {
@@ -88,7 +94,8 @@ nav > ul > li > a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin-top: 20px; /* Reduce this value or set to 0 */
+    padding-top: 20px; /* Reduce this value or set to 0 */
 }
 
 #projects{
@@ -105,7 +112,7 @@ nav > ul > li > a:hover {
     height: 260px;
     width: 300px;
     border-radius: 10px;
-    cursor: pointer;
+    cursor: none;
     position: relative;
 }
 
@@ -120,7 +127,7 @@ nav > ul > li > a:hover {
 .project::before {
     background: radial-gradient(
         800px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.04),
         transparent 40%
     );
     height: 100%;
@@ -147,7 +154,7 @@ nav > ul > li > a:hover {
 .project > .project-border {
     background: radial-gradient(
         400px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.4),
         transparent 40%
     );
     height: 100%;
@@ -186,4 +193,73 @@ nav > ul > li > a:hover {
 
     animation: background-pan 3s linear infinite;
     background-size: 200%;
+}
+
+
+#project-details {
+    width: calc(100% - 20px);
+    max-width: 1230px;
+    margin: 0 auto;  /* This centers the container */
+    padding: 20px 0; /* Add some vertical padding */
+}
+
+.filter-item {
+    cursor: pointer;
+}
+
+.filter-item.active {
+    font-weight: bold;
+    /* color: #your-highlight-color; */
+}
+
+/* .project {
+    transition: display 0.3s ease;
+} */
+
+.project {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project.hide {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+#projectfilters {
+    text-align: center;
+    margin: 2em 0;
+    padding-bottom: 0px;
+    margin-bottom: 20px; /* Reduce this value or set to 0 */
+}
+
+#filter-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-item {
+    border: 2px solid #b084cc;
+    padding: 0.5em 1.5em;
+    border-radius: 2em;
+    background-color: transparent;
+    color: #b084cc;
+    cursor: none;
+    transition: all 0.3s ease;
+    font-size: 0.7em;
+}
+
+.filter-item:hover {
+    background-color: #b084cc;
+    color: #ffffff;
+}
+
+.filter-item.active {
+    background-color: #b084cc;
+    color: #ffffff;
 }
