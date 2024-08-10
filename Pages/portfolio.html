@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../Styles/styles.css" />
     <link rel="stylesheet" href="../Styles/portfolio.css" />
     <script src="https://kit.fontawesome.com/f516cb5f7b.js" crossorigin="anonymous"></script>
+    
     <link href="../Media/smile.png" rel="icon" />
     <title>Portfolio</title>
 </head>
@@ -38,74 +39,152 @@
     </div>
     <section id="project-wrapper">
         <div id="projects">
-            <div class="project eece all">
+            <div class="project eece all" data-project="mccomputer">
                 <div class="project-border"></div>
                 <div class="project-content">
-                    8-Bit Minecraft Computer
+                    <div class="project-title">8-Bit Minecraft Computer</div>
                 </div>
             </div>
-            <div class="project swe all">
+            <div class="project swe all" data-project="workspaces">
                 <div class="project-border"></div>
                 <div class="project-content">
-                    Workspaces
-                    (Chrome Extension)
+                    <div class="project-title">Workspaces</div>
+                    <div class="project-subtitle">Chrome Extension</div>
                 </div>
             </div>
-            <div class="project swe all">
+            <div class="project swe all" data-project="alarm">
                 <div class="project-border"></div>
                 <div class="project-content">
-                        Apple Timer App 
+                    <div class="project-title">Apple Alarm App</div>
                 </div>
             </div>
-            <div class="project swe all">
+            <div class="project swe all" data-project="personal-website">
                 <div class="project-border"></div>
                 <div class="project-content">
-                        jasonwan04.com
-                        (Personal Website) 
+                    <div class="project-title">jasonwan04.com</div>
+                    <div class="project-subtitle">Personal Website</div>
                 </div>
             </div>
-            <div class="project mlai all">
+            <div class="project mlai all" data-project="image-segmentation">
                 <div class="project-border"></div>
                 <div class="project-content">
-                    Multi-Class Image Segmentation
+                    <div class="project-title">Multi-Class Image Segmentation</div>
+                    <div class="project-subtitle">Pre-SAM</div>
                 </div>
             </div>
-            <div class="project swe all">
+            <div class="project swe all" data-project="whats-the-move">
                 <div class="project-border"></div>
                 <div class="project-content">
-                    What's The Move
-                    (Social Media Webapp)
+                    <div class="project-title">What's The Move</div>
+                    <div class="project-subtitle">Social Media Webapp</div>
                 </div>
             </div>
-            <div class="project other all">
+            <div class="project other all" data-project="other-project">
                 <div class="project-border"></div>
                 <div class="project-content">
-                    
+                    <div class="project-title">Other Project</div>
                 </div>
             </div>
-            
         </div>
     </section>
+
+
+    <!-- <div id="project-section-title">
+        <h2>Project Details</h2>
+    </div> -->
+
     <section id="project-details">
         <!-- Project details will be added here -->
         
-        <div class="project-detail">
-ashdflkjashdklfjhasdf
+        <div class="project-detail" id="mccomputer">
+            <h2>8-Bit Minecraft Computer</h2>           
+            <div class="slideshow-container" id="slideshow-mccomputer">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="ProjectsMedia/MCPCImages/FullAdder.png" style="width:100%" alt="Full Adder">
+                    <div class="text">8-bit Full Adder</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="ProjectsMedia/MCPCImages/ram.png" style="width:100%" alt="RAM">
+                    <div class="text">32 Byte Ram</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="ProjectsMedia/MCPCImages/registers.png" style="width:100%" alt="Registers">
+                    <div class="text">Four 8-bit Registers</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="ProjectsMedia/MCPCImages/progress.png" style="width:100%" alt="Progress">
+                    <div class="text">Slow Progression</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1, 'mccomputer')">&#10094;</a>
+                <a class="next" onclick="plusSlides(1, 'mccomputer')">&#10095;</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1, 'mccomputer')"></span>
+                <span class="dot" onclick="currentSlide(2, 'mccomputer')"></span>
+                <span class="dot" onclick="currentSlide(3, 'mccomputer')"></span>
+                <span class="dot" onclick="currentSlide(4, 'mccomputer')"></span>
+            </div>
+            <p>Description of the 8-Bit Minecraft Computer project...</p>
         </div>
-        <div class="project-detail">
-asdjuikfhkljasdhfkljasdf
+    
+        <div class="project-detail" id="workspaces">
+            <h2>Workspaces</h2>
+            <div class="slideshow-container" id="slideshow-workspaces">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="ProjectsMedia/Webstore screenshots/webstore-firstscreenshot.png" style="width:100%" alt="Webstore Screenshot 1">
+                    <div class="text">Storage Page</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="ProjectsMedia/Webstore screenshots/webstore-second-image-1280x800.png" style="width:100%" alt="Webstore Screenshot 2">
+                    <div class="text">Recently Deleted Page</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="ProjectsMedia/Webstore screenshots/workspace-removebg-preview.png" style="width:100%" alt="Workspace Preview">
+                    <div class="text">Workspace Preview</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1, 'workspaces')">&#10094;</a>
+                <a class="next" onclick="plusSlides(1, 'workspaces')">&#10095;</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1, 'workspaces')"></span>
+                <span class="dot" onclick="currentSlide(2, 'workspaces')"></span>
+                <span class="dot" onclick="currentSlide(3, 'workspaces')"></span>
+            </div>
+            <a href="https://github.com/nJasow04/Workspaces"><i class="fab fa-github"></i> https://github.com/nJasow04/Workspaces</a>
+            <p>Description of the Workspaces project...</p>
         </div>
-        <div class="project-detail">
-asdflkjhapsdkhjfasdf
+
+
+        <div class="project-detail" id="alarm">
+            <h2>Apple Alarm App</h2>
+            <p>asdfasdfasdfasdf</p>
         </div>
-        <div class="project-detail">
-asdfasdfasdfasdf
+        <div class="project-detail" id="personal-website">
+            <h2>jasonwan04.com</h2>
+            <p>asdfasdfasdfasdf</p>
         </div>
-        <div class="project-detail">
-asdfasdfasdf
+        <div class="project-detail" id="image-segmentation">
+            <h2>Multi-Class Image Segmentation</h2>
+            <p>asdfasdfasdfasdf</p>
+        </div>
+        <div class="project-detail" id="whats-the-move">
+            <h2>Workspaces</h2>
+            <p>asdfasdfasdfasdf</p>
         </div>
         
     </section>
+
+    
+    
 
     <!-- End Portfolio Section -->
     <a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
