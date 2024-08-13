@@ -97,7 +97,7 @@
         <!-- Project details will be added here -->
         
         <div class="project-detail" id="mccomputer">
-            <h2>8-Bit Minecraft Computer</h2>           
+            <h1 style="font-size: 40px;">8-Bit Minecraft Computer</h1>           
             <div class="slideshow-container" id="slideshow-mccomputer">
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 4</div>
@@ -129,11 +129,17 @@
                 <span class="dot" onclick="currentSlide(3, 'mccomputer')"></span>
                 <span class="dot" onclick="currentSlide(4, 'mccomputer')"></span>
             </div>
-            <p>Description of the 8-Bit Minecraft Computer project...</p>
+            <div class="description-wrapper">
+                <h3>Description</h3>
+                <p>I am building an entirely virtual 8-bit, 32 byte memory, four 8-bit register computer, in Minecraft</p>
+                <p>As I am not completely finished yet, reflections, photos, and videos, are yet to be finalized</p>
+            </div>
         </div>
     
         <div class="project-detail" id="workspaces">
-            <h2>Workspaces</h2>
+            <h1>Workspaces</h1>
+            <a href="https://github.com/nJasow04/Workspaces"><i class="fab fa-github"></i> https://github.com/nJasow04/Workspaces</a>
+
             <div class="slideshow-container" id="slideshow-workspaces">
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
@@ -147,7 +153,7 @@
                 </div>
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
-                    <img src="ProjectsMedia/Webstore screenshots/workspace-removebg-preview.png" style="width:100%" alt="Workspace Preview">
+                    <img src="ProjectsMedia/Webstore screenshots/webstore.png" style="width:100%" alt="Workspace Preview">
                     <div class="text">Workspace Preview</div>
                 </div>
                 <a class="prev" onclick="plusSlides(-1, 'workspaces')">&#10094;</a>
@@ -159,19 +165,90 @@
                 <span class="dot" onclick="currentSlide(2, 'workspaces')"></span>
                 <span class="dot" onclick="currentSlide(3, 'workspaces')"></span>
             </div>
-            <a href="https://github.com/nJasow04/Workspaces"><i class="fab fa-github"></i> https://github.com/nJasow04/Workspaces</a>
-            <p>Description of the Workspaces project...</p>
-        </div>
 
+            <div class="description-wrapper">
+                <h3>Description</h3>
+                <p>This is a project I made over roughly a 3 day period. Its purpose to serve as simple, light weight, tab manager chrome extension.</p>
+                <h3>Problem</h3>
+                <p>The main problem with not closing my tabs is that my desktop gets super disorganized, which is a hugely discomforting feeling and seeing as chrome devours my computer's RAM I find my hardware to become a lot slower.</p>
+                <h3>Solution</h3>
+                <p>This is a chrome web extension to solve all your problems. It's extremely simple to use, lightweight, secure, simply pin the extension, click save workspace to save all tabs in the current, click view workspaces to see all your saved workspaces, and then to reopen a workspace, simply click the play button at the top right of the workspace. If you no longer need a workspace, simply click the x button. But if you didn't mean to do it, its ok, go to the recently deleted tab to see the last four of your most recently deleted workspaces.</p>
+            </div>
+        </div>
 
         <div class="project-detail" id="alarm">
-            <h2>Apple Alarm App</h2>
-            <p>asdfasdfasdfasdf</p>
+            <h1>NextAlarm (IOS Alarm App)</h1>
+            <a href="https://github.com/nJasow04/NextAlarm"><i class="fab fa-github"></i> https://github.com/nJasow04/NextAlarm</a>
+
+            <div class="slideshow-container" id="slideshow-alarm" style="width: 28%;">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="ProjectsMedia/NextAlarmViews/homepage.png" style="width:100%" alt="Home Page">
+                    <div class="text">Home Page</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="ProjectsMedia/NextAlarmViews/editview.png" style="width:100%" alt="EditView">
+                    <div class="text">Edit View</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="ProjectsMedia/NextAlarmViews/dateview.png" style="width:100%" alt="DateView">
+                    <div class="text">Date Selector View</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1, 'alarm')">&#10094;</a>
+                <a class="next" onclick="plusSlides(+1, 'alarm')">&#10095;</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1, 'alarm')"></span>
+                <span class="dot" onclick="currentSlide(2, 'alarm')"></span>
+                <span class="dot" onclick="currentSlide(3, 'alarm')"></span>
+            </div>
+            <div class="description-wrapper">
+                <h3>Description</h3>
+                <p>Essentially, the purpose of this app is to implement all of the features that I wish were in the default iPhone Alarm app. Having recently moved from android to ios, one of the things I had immediately missed was the ability to set an alarm for a specific date not just repeat for a given day. That's how this project got started in the first place.</p>
+                <h3>Features</h3>
+                <p>As I worked on this project, I began to realize just how badly designed the Alarm App was, and I implemented them in my version:</p>
+                <ul>
+                    <li>Swiping right all the way across an Alarm deletes the alarm</li>
+                    <li>Being able to set Repeats for Weekends, Weekdays, and most importantly, Everyday</li>
+                    <li>Being able to select a specific date for the Alarm (that can be set MORE than a week in the future)</li>
+                    <li>A label option to view in the Alarm page and a description option where you can write down specific things about a given Alarm, like Location, Purpose, etc.
+                    </li>
+                </ul>
+                <h3>UI/UX</h3>
+                <p>Designed completely by myself. Probably the largest UI/UX project I partaken in, especially having learned swiftUI in about a week just before starting this project.</p>
+                <h3>Reflection and what I learned</h3>
+                <p>I learned a lot making this project. This was the first phone app I ever built so I got to really know how to use XCode IDE, I got to implement and create user based UI/UX that I feel is not as focused on in software developement. I built this project in around 2 weeks with little touch ups here and there. I believe this is a great idea and I would strongly recommend Apple adopt some of its features.</p>
+            </div>
         </div>
+        
         <div class="project-detail" id="personal-website">
-            <h2>jasonwan04.com</h2>
-            <p>asdfasdfasdfasdf</p>
+            <h1><a
+                href="https://jasonwan04.com" target="_blank"
+                ><i class="fa-solid fa-link"></i> jasonwan04.com
+              </a></h1>
+            <a href="https://github.com/nJasow04/MyFirstWebsite"><i class="fab fa-github"></i> https://github.com/nJasow04/MyFirstWebsite</a>
+
+            <div class="description-wrapper">
+                <h3>Description</h3>
+                <p>My Personal Website and also my first ever website.</p>
+                <h3>Pages</h3>
+                <ul>
+                    <li>Home Page: Static html page with little functionalities but cool CSS effects. Mainly Resume focused.</li>
+                    <li>Portfolio: A lot more CSS effects where the focus is to display and talk about projects</li>
+                    <li>Chat With Me: A to be made chat page where you can talk to me. Will be finished before 2025.</li>
+                    <li>Contact: Different channels to contact me in front of probably the best photo I have ever personlly taken.</li>
+                </ul>
+                <h3>Reflection and what I learned</h3>
+                <p>Speaking from the heart, this project used up more time than I necessarily liked. However, from another point of view, I believe this website is a testament to how much I care about detail and perfection.
+                    This was my first ever website and though there were probably easier and better ways to build a website, I wanted to learn the basics of HTML, CSS, and JS. 
+                    I wanted to learn how to make a website from scratch and I wanted to learn how to make it look good. 
+                </p>
+            </div>
         </div>
+
         <div class="project-detail" id="image-segmentation">
             <h2>Multi-Class Image Segmentation</h2>
             <p>asdfasdfasdfasdf</p>
